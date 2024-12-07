@@ -1,0 +1,11 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Hotel,net.mooctest,Inventory,132,0,18,0,25,0,15,0,6,0
+Hotel,net.mooctest,Product,95,0,6,0,21,0,11,0,8,0
+Hotel,net.mooctest,Employee,68,0,2,0,13,0,7,0,6,0
+Hotel,net.mooctest,Book,84,0,4,0,19,0,10,0,8,0
+Hotel,net.mooctest,Library,63,0,6,0,16,0,9,0,6,0
+Hotel,net.mooctest,User,18,62,5,5,4,15,6,6,1,6
+Hotel,net.mooctest,Order,103,0,4,0,21,0,10,0,8,0
+Hotel,net.mooctest,BankAccount,170,0,12,0,32,0,14,0,8,0
+Hotel,net.mooctest,TaskManager,12,57,0,10,1,15,1,10,1,5
+Hotel,net.mooctest,Student,101,0,8,0,20,0,11,0,7,0

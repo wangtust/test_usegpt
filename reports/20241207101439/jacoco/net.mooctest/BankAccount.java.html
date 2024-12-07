@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BankAccount.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Hotel</a> &gt; <a href="index.source.html" class="el_package">net.mooctest</a> &gt; <span class="el_source">BankAccount.java</span></div><h1>BankAccount.java</h1><pre class="source lang-java linenums">package net.mooctest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BankAccount {
+
+    private String accountNumber;
+    private double balance;
+    private List&lt;String&gt; transactionHistory;
+
+<span class="fc" id="L12">    public BankAccount(String accountNumber, double initialBalance) {</span>
+<span class="fc" id="L13">        this.accountNumber = accountNumber;</span>
+<span class="fc" id="L14">        this.balance = initialBalance;</span>
+<span class="fc" id="L15">        this.transactionHistory = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L16">        transactionHistory.add(&quot;Account created with initial balance: &quot; + initialBalance);</span>
+<span class="fc" id="L17">    }</span>
+
+    public String getAccountNumber() {
+<span class="fc" id="L20">        return accountNumber;</span>
+    }
+
+    public double getBalance() {
+<span class="fc" id="L24">        return balance;</span>
+    }
+
+    public List&lt;String&gt; getTransactionHistory() {
+<span class="fc" id="L28">        return transactionHistory;</span>
+    }
+
+    public void deposit(double amount) {
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (amount &lt;= 0) {</span>
+<span class="fc" id="L33">            throw new IllegalArgumentException(&quot;Deposit amount must be positive.&quot;);</span>
+        }
+<span class="fc" id="L35">        balance += amount;</span>
+<span class="fc" id="L36">        transactionHistory.add(&quot;Deposited: &quot; + amount);</span>
+<span class="fc" id="L37">    }</span>
+
+    public void withdraw(double amount) {
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (amount &lt;= 0) {</span>
+<span class="fc" id="L41">            throw new IllegalArgumentException(&quot;Withdrawal amount must be positive.&quot;);</span>
+        }
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        if (amount &gt; balance) {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;Insufficient funds.&quot;);</span>
+        }
+<span class="fc" id="L46">        balance -= amount;</span>
+<span class="fc" id="L47">        transactionHistory.add(&quot;Withdrew: &quot; + amount);</span>
+<span class="fc" id="L48">    }</span>
+
+    public void transfer(BankAccount targetAccount, double amount) {
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (targetAccount == null) {</span>
+<span class="fc" id="L52">            throw new IllegalArgumentException(&quot;Target account cannot be null.&quot;);</span>
+        }
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        if (amount &lt;= 0) {</span>
+<span class="fc" id="L55">            throw new IllegalArgumentException(&quot;Transfer amount must be positive.&quot;);</span>
+        }
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (amount &gt; balance) {</span>
+<span class="fc" id="L58">            throw new IllegalArgumentException(&quot;Insufficient funds.&quot;);</span>
+        }
+<span class="fc" id="L60">        this.withdraw(amount);</span>
+<span class="fc" id="L61">        targetAccount.deposit(amount);</span>
+<span class="fc" id="L62">        transactionHistory.add(&quot;Transferred: &quot; + amount + &quot; to account &quot; + targetAccount.getAccountNumber());</span>
+<span class="fc" id="L63">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L67">        return &quot;BankAccount{&quot; +</span>
+                &quot;accountNumber='&quot; + accountNumber + '\'' +
+                &quot;, balance=&quot; + balance +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

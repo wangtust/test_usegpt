@@ -1,0 +1,10 @@
+net/mooctest/ProductTest.class
+net/mooctest/OrderTest.class
+net/mooctest/EmployeeTest.class
+net/mooctest/UserTest.class
+net/mooctest/StudentTest.class
+net/mooctest/InventoryTest.class
+net/mooctest/BankAccountTest.class
+net/mooctest/TaskManagerTest.class
+net/mooctest/BookTest.class
+net/mooctest/LibraryTest.class
